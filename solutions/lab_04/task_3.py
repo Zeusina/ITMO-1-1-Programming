@@ -49,11 +49,11 @@ print("Новый конвейер:", list(new_pipeline))
 
 print("\n\n===Дополнительные генерао=торы===\n")
 
-squares = [i**2 for i in range(2, 20, 2)]
+squares = [i**2 for i in range(2, 21, 2)]
 print("Список квадратов четных чисел от 1 до 20:", squares)
 
-lens = (len(s) for s in raw_lines if s)
-print("Длины непустых строк:", list(lens))
+lens = {len(s) for s in raw_lines if s}
+print("Длины непустых строк:", lens)
 
 squares2 = {i: i**2 for i in range(1, 10)}
 print("Словарь чисел и их квадратов:", squares2)
