@@ -2,12 +2,14 @@ import math
 
 
 class StepRangeIter:
+    """Итератор для последовательности StepRange."""
     start = 0
     stop = 0
     step = 1
     current = 0
 
     def __init__(self, start: int, stop: int, step=1):
+        """Инициализирует границы, шаг и текущее состояние итератора."""
         if step == 0:
             raise ValueError("Шаг должен быть не равен 0")
         self.start = start
@@ -19,6 +21,7 @@ class StepRangeIter:
         return self
 
     def __next__(self) -> int:
+        """Возвращает следующее значение или возбуждает StopIteration."""
         self.current += self.step
         if (self.step > 0 and self.current >= self.stop) or (
             self.step < 0 and self.current <= self.stop
@@ -35,6 +38,7 @@ class StepRangeIter:
             return 0
 
     def __contains__(self, item):
+        """Проверяет принадлежность значения без полного обхода."""
         if self.step > 0 and self.start < self.stop:
             return (self.start <= item < self.stop) and abs(item - self.start) % abs(
                 self.step
@@ -55,11 +59,13 @@ class StepRangeIter:
 
 
 class StepRange:
+    """Итерируемая целочисленная последовательность с заданным шагом."""
     start = 0
     stop = 0
     step = 1
 
     def __init__(self, start: int, stop: int, step=1):
+        """Создает диапазон с началом, концом и ненулевым шагом."""
         if step == 0:
             raise ValueError("Шаг должен быть не равен 0")
         self.start = start
@@ -67,6 +73,7 @@ class StepRange:
         self.step = step
 
     def __iter__(self) -> StepRangeIter:
+        """Создает новый независимый итератор диапазона."""
         return StepRangeIter(self.start, self.stop, self.step)
 
     def __len__(self) -> int:
@@ -78,6 +85,7 @@ class StepRange:
             return 0
 
     def __contains__(self, item):
+        """Проверяет принадлежность значения диапазону."""
         if self.step > 0 and self.start < self.stop:
             return (self.start <= item < self.stop) and abs(item - self.start) % abs(
                 self.step

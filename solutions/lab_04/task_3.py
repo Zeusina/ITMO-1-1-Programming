@@ -66,6 +66,7 @@ print("\n\n===Практическое расширение===")
 
 
 def take(n: int, it):
+    """Лениво выдает не более первых n элементов источника."""
     if n < 0:
         raise ValueError("n должен быть неотрицательным")
     c = 0
@@ -79,6 +80,7 @@ def take(n: int, it):
 
 
 def drop(n: int, it):
+    """Лениво выдает элементы источника после первых n элементов."""
     if n < 0:
         raise ValueError("n должен быть неотрицательным")
     iterable = iter(it)
@@ -92,6 +94,7 @@ def drop(n: int, it):
 
 
 def batch(it, size: int):
+    """Разбивает источник на последовательные списки заданного размера."""
     if size <= 0:
         raise ValueError("размер должен быть положительным")
     iterable = iter(it)
