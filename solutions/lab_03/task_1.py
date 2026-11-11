@@ -1,7 +1,7 @@
 from collections import defaultdict
 
 
-def check_inputs(student_result, work_type, missed_classes):
+def check_inputs(student_result, missed_classes):
     if not 0 <= student_result <= 100:
         print("Результат студента должен быть числом от 0 до 100")
         return False
@@ -51,7 +51,7 @@ def convert_work_type(work_type):
 student_result = int(input("Введите результат студента: "))
 work_type = input("Введите тип работы: ")
 missed_classes = int(input("Введите количество пропусков: "))
-if check_inputs(student_result, work_type, missed_classes):
+if check_inputs(student_result, missed_classes):
     grade = calculate_grade(student_result, missed_classes)
     work_type_verbose = convert_work_type(work_type)
     print(work_type_verbose, "-", grade)
@@ -77,7 +77,7 @@ stats = defaultdict(int)
 for i in test_data:
     student_result, work_type, missed_classes = i
 
-    if check_inputs(student_result, work_type, missed_classes):
+    if check_inputs(student_result, missed_classes):
         grade = calculate_grade(student_result, missed_classes)
         stats[grade] += 1
         work_type_verbose = convert_work_type(work_type)
