@@ -1,5 +1,3 @@
-from task_2 import StepRange
-
 values = [10, 20, 30]
 iterator = iter(values)
 
@@ -80,4 +78,3 @@ print(
     "my_zip(), генераторы:",
     my_zip((x for x in range(3)), (x * 10 for x in range(2))),
 )
-
