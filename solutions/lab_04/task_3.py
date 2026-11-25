@@ -47,7 +47,7 @@ new_pipeline = moving_average(
 )
 print("Новый конвейер:", list(new_pipeline))
 
-print("\n\n===Дополнительные генерао=торы===\n")
+print("\n\n===Дополнительные генераторы===\n")
 
 squares = [i**2 for i in range(2, 21, 2)]
 print("Список квадратов четных чисел от 1 до 20:", squares)
